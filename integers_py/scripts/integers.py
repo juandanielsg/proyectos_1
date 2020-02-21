@@ -2,14 +2,15 @@
 # license removed for brevity 
 
 import rospy 
-from std_msgs.msg import String
+from std_msgs.msg import Int16
 
 def pedir_enteros():
-    pub = rospy.Publisher('chatter', String, queue_size=10)
+    pub = rospy.Publisher('chatter', Int16, queue_size=10)
     rospy.init_node('talker', anonymous=True) 
     
     while not rospy.is_shutdown():
         entero = int(input("Escribe un entero por teclado: "))
+        
         rospy.loginfo(entero)
         pub.publish(entero) 
 
